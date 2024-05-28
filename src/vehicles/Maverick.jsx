@@ -64,12 +64,6 @@ console.log()
   }
   return (
     <group {...props} dispose={null}>
-      <mesh geometry={nodes.wipers.geometry} material={materials['black matt']} />
-      <mesh geometry={nodes.text_logo.geometry} material={materials['chrome.001']} />
-      <mesh geometry={nodes.trailer_panel.geometry} material={materials['black matt']} />
-      <mesh geometry={nodes.exhaust_pipe.geometry} material={materials['dark grey']} />
-      <mesh geometry={nodes.antenna.geometry} material={materials['grey matt.002']} />
-      <mesh geometry={nodes.bottom.geometry} material={materials['dark grey']} />
       <mesh geometry={nodes.body.geometry}>
         <meshStandardMaterial {...materials.BaseMtl} color={overlay==1 || overlay==13 ? (snap1.base.BaseMtl!=="none" ? snap1.base.BaseMtl : 0xffffff) : 0xffffff}>
           <canvasTexture
@@ -83,10 +77,19 @@ console.log()
           />
         </meshStandardMaterial>
       </mesh>
+      <mesh geometry={nodes.wipers.geometry} material={materials['black matt']} />
+      <mesh geometry={nodes.text_logo.geometry} material={materials['chrome.001']} />
+      <mesh geometry={nodes.trailer_panel.geometry} material={materials['black matt']} />
+      <mesh geometry={nodes.exhaust_pipe.geometry} material={materials['dark grey']} />
+      <mesh geometry={nodes.antenna.geometry} material={materials['grey matt.002']} />
+      <mesh geometry={nodes.bottom.geometry} material={materials['dark grey']} />
+      
       <mesh geometry={nodes.chasis.geometry} material={materials['grey matt.002']} />
       <mesh geometry={nodes.rear_bumper.geometry} material={materials['dark grey']} />
+      
       <mesh geometry={nodes.Dash.geometry} material={materials.dash} />
       <mesh geometry={nodes.Trunk.geometry} material={materials.dash} />
+      
       <mesh geometry={nodes.Mesh.geometry} material={materials.Ford_logo} />
       <mesh geometry={nodes.Mesh_1.geometry} material={materials.chrome} />
       <mesh geometry={nodes.Mesh001.geometry} material={materials['light grey']} />

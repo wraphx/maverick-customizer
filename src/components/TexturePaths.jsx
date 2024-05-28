@@ -17,7 +17,7 @@ var TexturePaths = [
     },
     {
         overlay: 5,
-        path: "textures/Danger Base Color.png"
+        path: "textures/Danger.png"
     },
     {
         overlay: 6,
