@@ -25,7 +25,16 @@ const options = [
     { value: 18, label: 'Water Explosion', image: '/options/explosion.png' },
     { value: 19, label: 'Wild West', image: '/options/wildwest.png' },
     { value: 20, label: 'Zombie', image: '/options/zombie.png' },
+    { value: 21, label: 'Linearock', image: '/options/linea.png' },
+    { value: 22, label: 'Euclids Theorem', image: '/options/euclid.png' },
+    { value: 23, label: 'Pantone Zebra', image: '/options/pantone.png' },
+    { value: 24, label: 'Heavenly Peace', image: '/options/heavenly.png' },
+    { value: 25, label: 'Liquid Army', image: '/options/army.png' },
+    
 ];
+
+// Reverse the options array to display in reversed order
+const reversedOptions = [...options].reverse();
 
 const Option = ({ data, ...props }) => (
     <components.Option {...props}>
@@ -38,7 +47,6 @@ const Option = ({ data, ...props }) => (
     </components.Option>
 );
 
-
 const Configurator = () => {
     const { overlay, setOverlay } = useCustomization();
 
@@ -46,10 +54,11 @@ const Configurator = () => {
         setOverlay(selectedOption.value);
     };
 
+    // Get the first option from the reversed list
+    const initialValue = reversedOptions.length > 0 ? reversedOptions[0] : null;
 
     return (
         <>
-
             <div className='configurator'>
                 <div className='conic all' />
                 <div className='configurator__section__title'>
@@ -57,8 +66,8 @@ const Configurator = () => {
                 </div>
                 <div className='selector' >
                     <Select
-                        value={options.find(option => option.value === overlay)}
-                        options={options}
+                        value={initialValue} // Set the initial value to the first option in reversedOptions
+                        options={reversedOptions} // Use reversedOptions here
                         onChange={handleOverlayChange}
                         placeholder="Select Material"
                         components={{ Option }}
@@ -74,13 +83,10 @@ const Configurator = () => {
                     </div>
                 </div>
 
-
                 <div className='texture-images'>
-                    {TexturePaths.map((v) => {
-                        return (
-                            <img key={v.overlay} src={v.path} id={`overlay${v.overlay}`} />
-                        )
-                    })}
+                    {TexturePaths.map((v) => (
+                        <img key={v.overlay} src={v.path} id={`overlay${v.overlay}`} />
+                    ))}
                 </div>
 
             </div>
